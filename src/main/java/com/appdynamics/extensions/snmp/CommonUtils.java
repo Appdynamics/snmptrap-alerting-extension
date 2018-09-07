@@ -77,7 +77,10 @@ public class CommonUtils {
                 logger.error(ex.toString());
             }
             finally {
-                s.close();
+                if(s != null){
+                    s.close();
+                }
+
             }
         } else {
             logger.error("Unsupported platform " + SystemUtils.OS_NAME + ".");
