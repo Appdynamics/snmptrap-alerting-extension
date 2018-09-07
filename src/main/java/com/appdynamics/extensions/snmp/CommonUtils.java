@@ -68,11 +68,19 @@ public class CommonUtils {
                 logger.error(ex.getMessage());
             }
         } else if (SystemUtils.IS_OS_LINUX) {
+            Scanner s = null;
             try {
-                Float upTime = Float.parseFloat(new Scanner(new FileInputStream("/proc/uptime")).next()) * 1000;
+                s = new Scanner(new FileInputStream("/proc/uptime"));
+                Float upTime = Float.parseFloat(s.next()) * 1000;
                 _sysUpTime = upTime.longValue();
             } catch (Exception ex) {
                 logger.error(ex.toString());
+            }
+            finally {
+                if(s != null){
+                    s.close();
+                }
+
             }
         } else {
             logger.error("Unsupported platform " + SystemUtils.OS_NAME + ".");

@@ -14,7 +14,7 @@
 
     <groupId>com.appdynamics.extensions</groupId>
     <artifactId>snmp-trap-alert</artifactId>
-    <version>5.3.2</version>
+    <version>5.4.0</version>
     <packaging>jar</packaging>
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -100,6 +100,10 @@
                                 <mkdir dir="${target.dir}" />
                                 <mkdir dir="${target.dir}/conf" />
                                 <mkdir dir="${target.dir}/mib" />
+
+                                <echo file="${target.dir}/version.txt" append="false">
+                                    Project Version : ${project.version} ${line.separator}Build @ ${maven.build.timestamp}
+                                </echo>
                                 <copy todir="${target.dir}/conf">
                                     <fileset dir="conf" />
                                 </copy>
@@ -107,7 +111,6 @@
                                     <fileset dir="src/main/resources" includes="*.bat,*.sh, *.txt" />
                                     <fileset dir="${project.basedir}" includes="LICENSE.txt"/>
                                     <fileset dir="${project.basedir}" includes="NOTICE.txt"/>
-
                                 </copy>
                                 <copy todir="${target.dir}/mib">
                                     <fileset dir="src/main/resources/mib" includes="*.mib" />
