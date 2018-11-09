@@ -29,6 +29,7 @@ public class CommonUtils {
 
     private static Logger logger = Logger.getLogger(CommonUtils.class);
 
+    //Pattern to match account id's which are of the form customer1_8ebde89a-4dbd-443b-9220-f94dc9384554
     private static final String ACCOUNT_ID_PATTERN_STRING = ".*_.{8}-.{4}-.{4}-.{4}-.{12}";
     private static final Pattern ACCOUNT_ID_PATTERN = Pattern.compile(ACCOUNT_ID_PATTERN_STRING);
 
