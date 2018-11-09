@@ -32,6 +32,10 @@ public class CommonUtilsTest {
         Assert.assertTrue(accountName.equalsIgnoreCase("JAMS"));
     }
 
-
-
+    @Test
+    public void testCleanupAccountInfoWithFullAccountName(){
+        String accountId = "CONTENT_MANAGEMENT_ON_DEMAND_PRD";
+        String accountName = CommonUtils.cleanUpAccountInfo(accountId);
+        Assert.assertEquals("Should return same account name if full name is given", accountId, accountName);
+    }
 }

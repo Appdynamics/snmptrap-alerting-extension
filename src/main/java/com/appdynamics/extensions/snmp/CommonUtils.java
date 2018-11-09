@@ -22,29 +22,37 @@ import java.io.InputStreamReader;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Scanner;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 public class CommonUtils {
 
     private static Logger logger = Logger.getLogger(CommonUtils.class);
 
+    private static final String ACCOUNT_ID_PATTERN_STRING = ".*_.{8}-.{4}-.{4}-.{4}-.{12}";
+    private static final Pattern ACCOUNT_ID_PATTERN = Pattern.compile(ACCOUNT_ID_PATTERN_STRING);
+
     public static String getAlertUrl(Event event) {
         String url = event.getDeepLinkUrl();
-        if(event instanceof HealthRuleViolationEvent){
+        if (event instanceof HealthRuleViolationEvent) {
             url += ((HealthRuleViolationEvent) event).getIncidentID();
-        }
-        else{
+        } else {
             url += ((OtherEvent) event).getEventSummaries().get(0).getEventSummaryId();
         }
         return url;
     }
 
     public static String cleanUpAccountInfo(String accountId) {
-        if(Strings.isNullOrEmpty(accountId)){
+        if (Strings.isNullOrEmpty(accountId)) {
             return "";
         }
-        int idx = accountId.indexOf("_");
-        if(idx != -1){
-            return accountId.substring(0,idx);
+
+        Matcher matcher = ACCOUNT_ID_PATTERN.matcher(accountId);
+        if (matcher.matches()) {
+            int idx = accountId.indexOf("_");
+            if (idx != -1) {
+                return accountId.substring(0, idx);
+            }
         }
         return accountId;
     }
@@ -64,7 +72,7 @@ public class CommonUtils {
                         break;
                     }
                 }
-            } catch(Exception ex) {
+            } catch (Exception ex) {
                 logger.error(ex.getMessage());
             }
         } else if (SystemUtils.IS_OS_LINUX) {
@@ -75,9 +83,8 @@ public class CommonUtils {
                 _sysUpTime = upTime.longValue();
             } catch (Exception ex) {
                 logger.error(ex.toString());
-            }
-            finally {
-                if(s != null){
+            } finally {
+                if (s != null) {
                     s.close();
                 }
 
@@ -95,11 +102,10 @@ public class CommonUtils {
               Timeticks takes only unsigned int 32-bit values. 4294967295L
               will rollover after 496 days and typecasting it to (int) would return -ve. So absolute
              */
-            int upTime = (int)upTimeInMs;
+            int upTime = (int) upTimeInMs;
             sysUpTime.fromMilliseconds(Math.abs(upTime));
-        }
-        catch(IllegalArgumentException e){
-            logger.error("Cannot convert to timeticks for value " + upTimeInMs,e);
+        } catch (IllegalArgumentException e) {
+            logger.error("Cannot convert to timeticks for value " + upTimeInMs, e);
         }
         return sysUpTime;
     }
