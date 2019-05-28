@@ -119,7 +119,10 @@ to resolve performance degradation issues. This tool sends all the events in App
                       connectTimeoutInSeconds: 10
                       socketTimeoutInSeconds: 10
 
-
+                    
+                    eventTypes: ["APPLICATION_ERROR","DEADLOCK","APP_SERVER_RESTART","APPLICATION_CONFIG_CHANGE","DIAGNOSTIC_SESSION","STALL","APPLICATION_CRASH","APPLICATION_DEPLOYMENT","NODE_DISCOVERED","SLOW","TIER_DISCOVERED","VERY_SLOW"]
+                    severities: ["INFO","WARN","ERROR"]
+                    durationInMins: 10
 
                     ######AppD information end#################
 	         ```
