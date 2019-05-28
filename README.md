@@ -221,6 +221,6 @@ Find out more in the [AppDynamics Exchange](http://appsphere.appdynamics.com/t5/
 
 For any questions or feature request, please contact [AppDynamics Center of Excellence][].
 
-**Version:** 11.0.0
-**Controller Compatibility:** 4.1+
+**Version:** 6.0.0
+**Controller Compatibility:** 4.3+
 **SNMP version tested on:** v1,v2,v3.
