@@ -8,8 +8,10 @@
 
 package org.snmp4j.security;
 
-import java.util.*;
 import org.snmp4j.smi.Integer32;
+
+import java.util.Hashtable;
+import java.util.Map;
 
 /**
  * The <code>SecurityModels</code> class is a collection of all

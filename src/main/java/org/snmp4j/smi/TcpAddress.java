@@ -10,8 +10,10 @@
 
 package org.snmp4j.smi;
 
+import org.snmp4j.log.LogAdapter;
+import org.snmp4j.log.LogFactory;
+
 import java.net.InetAddress;
-import org.snmp4j.log.*;
 
 /**
  * The <code>TcpAddress</code> represents TCP/IP transport addresses.

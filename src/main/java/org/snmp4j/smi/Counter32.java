@@ -12,9 +12,11 @@
 
 package org.snmp4j.smi;
 
-import java.io.*;
 import org.snmp4j.asn1.BER;
 import org.snmp4j.asn1.BERInputStream;
+
+import java.io.IOException;
+import java.io.OutputStream;
 
 /**
  * The <code>Counter32</code> class allows all the functionality of unsigned

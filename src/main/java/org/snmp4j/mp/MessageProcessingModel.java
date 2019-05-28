@@ -8,16 +8,18 @@
 
 package org.snmp4j.mp;
 
-import java.io.IOException;
-import org.snmp4j.*;
-import org.snmp4j.smi.*;
-import org.snmp4j.asn1.BERInputStream;
-import org.snmp4j.MutablePDU;
 import org.snmp4j.MessageDispatcher;
+import org.snmp4j.MutablePDU;
+import org.snmp4j.PDU;
+import org.snmp4j.asn1.BERInputStream;
 import org.snmp4j.asn1.BEROutputStream;
+import org.snmp4j.smi.Address;
+import org.snmp4j.smi.Integer32;
+import org.snmp4j.smi.OctetString;
+
+import java.io.IOException;
+
 // needed by JavaDoc:
-import org.snmp4j.security.SecurityLevel;
-import org.snmp4j.security.SecurityModel;
 
 /**
  * The <code>MessageProcessingModel</code> interface defines common methods

@@ -12,13 +12,14 @@
 
 package org.snmp4j.mp;
 
-import org.snmp4j.event.CounterListener;
 import org.snmp4j.event.CounterEvent;
-import java.util.Hashtable;
-import org.snmp4j.smi.OID;
-import org.snmp4j.smi.VariableBinding;
+import org.snmp4j.event.CounterListener;
 import org.snmp4j.smi.Counter32;
+import org.snmp4j.smi.OID;
 import org.snmp4j.smi.Variable;
+import org.snmp4j.smi.VariableBinding;
+
+import java.util.Hashtable;
 
 /**
  * The <code>DefaultCounterListener</code> is the default implementation of

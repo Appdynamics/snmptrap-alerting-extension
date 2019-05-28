@@ -10,15 +10,16 @@
 
 package org.snmp4j.transport;
 
-import java.io.IOException;
+import org.snmp4j.SNMP4JSettings;
+import org.snmp4j.log.LogAdapter;
+import org.snmp4j.log.LogFactory;
 import org.snmp4j.smi.Address;
 import org.snmp4j.smi.TcpAddress;
-import java.util.Vector;
-import org.snmp4j.log.LogFactory;
-import org.snmp4j.log.LogAdapter;
-import java.util.List;
-import org.snmp4j.SNMP4JSettings;
+
+import java.io.IOException;
 import java.util.ArrayList;
+import java.util.List;
+import java.util.Vector;
 
 /**
  * The <code>TcpTransportMapping</code> is the abstract base class for

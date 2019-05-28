@@ -8,14 +8,23 @@
 
 package org.snmp4j.util;
 
-import java.io.*;
-import java.util.*;
+import org.snmp4j.PDU;
+import org.snmp4j.Session;
+import org.snmp4j.Target;
+import org.snmp4j.event.ResponseEvent;
+import org.snmp4j.event.ResponseListener;
+import org.snmp4j.log.LogAdapter;
+import org.snmp4j.log.LogFactory;
+import org.snmp4j.mp.SnmpConstants;
+import org.snmp4j.smi.Integer32;
+import org.snmp4j.smi.Null;
+import org.snmp4j.smi.OID;
+import org.snmp4j.smi.VariableBinding;
 
-import org.snmp4j.*;
-import org.snmp4j.event.*;
-import org.snmp4j.log.*;
-import org.snmp4j.mp.*;
-import org.snmp4j.smi.*;
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.LinkedList;
+import java.util.List;
 
 public class TreeUtils extends AbstractSnmpUtility {
 

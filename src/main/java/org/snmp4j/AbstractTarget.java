@@ -8,8 +8,8 @@
 
 package org.snmp4j;
 
-import org.snmp4j.smi.Address;
 import org.snmp4j.mp.SnmpConstants;
+import org.snmp4j.smi.Address;
 
 /**
  * A <code>AbstratTarget</code> class is an abstract representation of a remote

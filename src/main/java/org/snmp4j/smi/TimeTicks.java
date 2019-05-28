@@ -8,10 +8,12 @@
 
 package org.snmp4j.smi;
 
-import java.io.*;
-import java.text.MessageFormat;
 import org.snmp4j.asn1.BER;
 import org.snmp4j.asn1.BERInputStream;
+
+import java.io.IOException;
+import java.io.OutputStream;
+import java.text.MessageFormat;
 
 /**
  * The <code>TimeTicks</code> class represents the time in 1/100 seconds

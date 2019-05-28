@@ -8,7 +8,7 @@
  *
  */
 
-package com.appdynamics.extensions.snmp;
+package com.appdynamics.extensions.snmp.model;
 
 /**
  * SNMP Data Object

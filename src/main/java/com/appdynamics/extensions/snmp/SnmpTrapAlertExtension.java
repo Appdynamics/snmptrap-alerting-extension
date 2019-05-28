@@ -13,15 +13,20 @@ import com.appdynamics.extensions.alerts.customevents.Event;
 import com.appdynamics.extensions.alerts.customevents.EventBuilder;
 import com.appdynamics.extensions.alerts.customevents.HealthRuleViolationEvent;
 import com.appdynamics.extensions.alerts.customevents.OtherEvent;
+import com.appdynamics.extensions.http.SimpleHttpClient;
+import com.appdynamics.extensions.snmp.api.ControllerApiService;
+import com.appdynamics.extensions.snmp.api.HttpClientBuilder;
 import com.appdynamics.extensions.snmp.config.ConfigLoader;
 import com.appdynamics.extensions.snmp.config.Configuration;
+import com.appdynamics.extensions.snmp.config.ControllerConfig;
+import com.appdynamics.extensions.snmp.model.ADSnmpData;
+import com.appdynamics.extensions.snmp.model.SNMPDataBuilder;
 import org.apache.log4j.Logger;
 
 import java.util.Arrays;
 
 public class SnmpTrapAlertExtension {
 
-    public static final String MULTI_TENANCY = "appDynamics.controller.multiTenant";
     private static final String TRAP_OID_NOTIFICATIONS = "1.3.6.1.4.1.40684.1.1.1.500";
     private static final String TRAP_OID_01 = "1.3.6.1.4.1.40684.1.1.1.500.1";
     private static final String TRAP_OID_02 = "1.3.6.1.4.1.40684.1.1.1.500.2";
@@ -47,7 +52,6 @@ public class SnmpTrapAlertExtension {
     public SnmpTrapAlertExtension(Configuration config){
         String msg = "SnmpTrapAlertExtension Version ["+getImplementationTitle()+"]";
         logger.info(msg);
-        System.out.println(msg);
         this.config = config;
     }
 
@@ -60,12 +64,9 @@ public class SnmpTrapAlertExtension {
                 logger.error("No arguments passed to the extension, exiting the program.");
                 return;
             }
-            boolean isMultiTenant = Boolean.getBoolean(MULTI_TENANCY);
             Event event = eventBuilder.build(args);
 
-            Configuration config = ConfigLoader.getConfig(isMultiTenant, event.getAccountId());
-            logger.info("Configuration Loaded.");
-            logger.debug("Config passed => " + config);
+            Configuration config = ConfigLoader.getConfig();
             SnmpTrapAlertExtension trapExtension = new SnmpTrapAlertExtension(config);
             boolean status = trapExtension.process(event);
             if (status) {
@@ -88,8 +89,11 @@ public class SnmpTrapAlertExtension {
 
     public boolean process(Event event) {
         if(event != null){
-            logger.info("Processing Event");
-            ADSnmpData snmpData = createSNMPData(event);
+            logger.debug("Processing an Event");
+            ControllerConfig controller = config.getController();
+            logger.debug("Building HTTP client");
+            SimpleHttpClient httpClient = buildHttpClient(controller);
+            ADSnmpData snmpData = new SNMPDataBuilder(config,new ControllerApiService(httpClient)).build(event);
             logger.debug("SNMP Data => " + snmpData);
             String trapOid = getOID(event);
             logger.debug("Trap OID => " + trapOid);
@@ -104,20 +108,9 @@ public class SnmpTrapAlertExtension {
         return false;
     }
 
-
-    private ADSnmpData createSNMPData(Event event) {
-        ADSnmpData adSnmpData = null;
-        //mapper to map to snmp data
-        final SNMPDataBuilder snmpDataBuilder = new SNMPDataBuilder(config);
-        if(event instanceof HealthRuleViolationEvent) {
-            HealthRuleViolationEvent violationEvent = (HealthRuleViolationEvent) event;
-            adSnmpData = snmpDataBuilder.buildFromHealthRuleViolationEvent(violationEvent);
-        }
-        else{
-            OtherEvent otherEvent = (OtherEvent) event;
-            adSnmpData = snmpDataBuilder.buildFromOtherEvent(otherEvent);
-        }
-        return adSnmpData;
+    private SimpleHttpClient buildHttpClient(ControllerConfig controller) {
+        HttpClientBuilder clientBuilder = new HttpClientBuilder(controller.isUseSsl(), controller.getUserAccount(), controller.getPassword(), controller.getConnectTimeoutInSeconds() * 1000, controller.getSocketTimeoutInSeconds() * 1000);
+        return clientBuilder.buildHttpClient();
     }
 
 

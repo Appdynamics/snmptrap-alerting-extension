@@ -8,8 +8,9 @@
 
 package org.snmp4j.security;
 
-import java.io.Serializable;
 import org.snmp4j.smi.OctetString;
+
+import java.io.Serializable;
 
 /**
  * The <code>UsmTimeEntry</code> class represents time synchronization

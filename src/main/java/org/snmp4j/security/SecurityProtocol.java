@@ -8,8 +8,9 @@
 
 package org.snmp4j.security;
 
-import java.io.Serializable;
 import org.snmp4j.smi.OID;
+
+import java.io.Serializable;
 
 /**
  * The <code>SecurityProtocol</code> class defines common methods of

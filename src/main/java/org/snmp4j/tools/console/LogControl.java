@@ -8,21 +8,21 @@
 
 package org.snmp4j.tools.console;
 
-import java.io.*;
-import java.text.*;
-import java.util.*;
-
 import org.snmp4j.*;
-import org.snmp4j.event.*;
-import org.snmp4j.log.*;
-import org.snmp4j.smi.*;
-import org.snmp4j.transport.*;
-import org.snmp4j.util.*;
-import org.snmp4j.security.USM;
-import org.snmp4j.security.SecurityProtocols;
-import org.snmp4j.mp.MPv3;
+import org.snmp4j.event.ResponseEvent;
+import org.snmp4j.log.LogLevel;
 import org.snmp4j.mp.MPv1;
 import org.snmp4j.mp.MPv2c;
+import org.snmp4j.mp.MPv3;
+import org.snmp4j.security.SecurityProtocols;
+import org.snmp4j.security.USM;
+import org.snmp4j.smi.*;
+import org.snmp4j.transport.DefaultUdpTransportMapping;
+import org.snmp4j.util.*;
+
+import java.io.IOException;
+import java.text.ParseException;
+import java.util.Map;
 
 /**
  * The <code>LogControl</code> tool can be used to control the log levels

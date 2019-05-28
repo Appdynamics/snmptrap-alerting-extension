@@ -10,12 +10,13 @@
 
 package org.snmp4j.transport;
 
-import org.snmp4j.TransportMapping;
 import org.snmp4j.MessageDispatcher;
-import java.io.IOException;
+import org.snmp4j.TransportMapping;
 import org.snmp4j.smi.Address;
-import java.util.Vector;
+
+import java.io.IOException;
 import java.nio.ByteBuffer;
+import java.util.Vector;
 
 /**
  * The <code>AbstractTransportMapping</code> provides an abstract

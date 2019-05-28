@@ -8,12 +8,13 @@
 
 package org.snmp4j.security;
 
-import javax.crypto.*;
+import org.snmp4j.log.LogAdapter;
+import org.snmp4j.log.LogFactory;
+import org.snmp4j.smi.OctetString;
 
-import org.snmp4j.log.*;
+import javax.crypto.Cipher;
 import javax.crypto.spec.IvParameterSpec;
 import javax.crypto.spec.SecretKeySpec;
-import org.snmp4j.smi.OctetString;
 
 
 /**

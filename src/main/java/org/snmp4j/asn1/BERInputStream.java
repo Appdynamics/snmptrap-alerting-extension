@@ -8,9 +8,10 @@
 
 package org.snmp4j.asn1;
 
-import java.io.*;
-import java.nio.ByteBuffer;
+import java.io.IOException;
+import java.io.InputStream;
 import java.nio.BufferUnderflowException;
+import java.nio.ByteBuffer;
 
 
 /**

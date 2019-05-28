@@ -8,7 +8,6 @@
 
 package org.snmp4j.util;
 
-import org.snmp4j.util.*;
 import org.snmp4j.SNMP4JSettings;
 
 /**

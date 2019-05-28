@@ -8,9 +8,10 @@
 
 package org.snmp4j.util;
 
+import org.snmp4j.PDU;
 import org.snmp4j.smi.OID;
 import org.snmp4j.smi.VariableBinding;
-import org.snmp4j.PDU;
+
 import java.util.Arrays;
 
 /**

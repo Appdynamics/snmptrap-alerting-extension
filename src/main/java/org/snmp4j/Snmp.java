@@ -8,16 +8,25 @@
 
 package org.snmp4j;
 
-import java.io.*;
-import java.util.*;
-
-import org.snmp4j.event.*;
-import org.snmp4j.log.*;
+import org.snmp4j.event.ResponseEvent;
+import org.snmp4j.event.ResponseListener;
+import org.snmp4j.log.LogAdapter;
+import org.snmp4j.log.LogFactory;
 import org.snmp4j.mp.*;
-import org.snmp4j.security.*;
-import org.snmp4j.smi.*;
-import org.snmp4j.transport.*;
-import org.snmp4j.util.*;
+import org.snmp4j.security.SecurityLevel;
+import org.snmp4j.security.SecurityModel;
+import org.snmp4j.security.SecurityProtocols;
+import org.snmp4j.security.USM;
+import org.snmp4j.smi.Address;
+import org.snmp4j.smi.OID;
+import org.snmp4j.smi.OctetString;
+import org.snmp4j.smi.VariableBinding;
+import org.snmp4j.transport.ConnectionOrientedTransportMapping;
+import org.snmp4j.transport.TransportMappings;
+import org.snmp4j.util.CommonTimer;
+
+import java.io.IOException;
+import java.util.*;
 
 /**
  * The <code>Snmp</code> class is the core of SNMP4J. It provides functions to

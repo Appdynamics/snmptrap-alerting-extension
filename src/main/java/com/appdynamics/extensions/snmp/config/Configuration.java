@@ -9,11 +9,12 @@
 package com.appdynamics.extensions.snmp.config;
 
 import java.util.Arrays;
+import java.util.List;
 
 public class Configuration {
 
-    public static final int DEFAULT_MIB_VERSION = 1;
-    public static final int DEFAULT_SNMP_VERSION = 3;
+    private static final int DEFAULT_MIB_VERSION = 1;
+    private static final int DEFAULT_SNMP_VERSION = 3;
 
     private Receiver[] receivers;
     private String community;
@@ -22,10 +23,11 @@ public class Configuration {
     private int snmpVersion = DEFAULT_SNMP_VERSION;
     private SnmpV3Configuration snmpV3Configuration;
     private String encryptionKey;
-    private String accountName;
-    private boolean isMultiTenant;
     private boolean fetchMachineInfoFromApi;
     private ControllerConfig controller;
+    private List<String> eventTypes;
+    private List<String> severities;
+    private int durationInMins;
 
 
     public Receiver[] getReceivers() {
@@ -76,22 +78,6 @@ public class Configuration {
         this.snmpV3Configuration = snmpV3Configuration;
     }
 
-    public String getAccountName() {
-        return accountName;
-    }
-
-    public void setAccountName(String accountName) {
-        this.accountName = accountName;
-    }
-
-    public boolean getIsMultiTenant() {
-        return isMultiTenant;
-    }
-
-    public void setIsMultiTenant(boolean isMultiTenant) {
-        this.isMultiTenant = isMultiTenant;
-    }
-
     public String getEncryptionKey() {
         return encryptionKey;
     }
@@ -116,6 +102,30 @@ public class Configuration {
         this.fetchMachineInfoFromApi = fetchMachineInfoFromApi;
     }
 
+    public List<String> getEventTypes() {
+        return eventTypes;
+    }
+
+    public void setEventTypes(List<String> eventTypes) {
+        this.eventTypes = eventTypes;
+    }
+
+    public List<String> getSeverities() {
+        return severities;
+    }
+
+    public void setSeverities(List<String> severities) {
+        this.severities = severities;
+    }
+
+    public int getDurationInMins() {
+        return durationInMins;
+    }
+
+    public void setDurationInMins(int durationInMins) {
+        this.durationInMins = durationInMins;
+    }
+
     @Override
     public String toString() {
         return "Configuration{" +
@@ -126,6 +136,9 @@ public class Configuration {
                 ", snmpVersion=" + snmpVersion +
                 ", snmpV3Configuration=" + snmpV3Configuration +
                 ", controller=" + controller +
+                ", eventTypes=" + eventTypes +
+                ", durationInMins=" + durationInMins +
+                ", severities=" + severities +
                 '}';
     }
 }

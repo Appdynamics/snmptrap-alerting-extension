@@ -8,12 +8,14 @@
 
 package org.snmp4j.security;
 
+import org.snmp4j.log.LogAdapter;
+import org.snmp4j.log.LogFactory;
 import org.snmp4j.smi.OID;
-import org.snmp4j.log.*;
-import javax.crypto.spec.SecretKeySpec;
-import javax.crypto.spec.IvParameterSpec;
-import javax.crypto.Cipher;
 import org.snmp4j.smi.OctetString;
+
+import javax.crypto.Cipher;
+import javax.crypto.spec.IvParameterSpec;
+import javax.crypto.spec.SecretKeySpec;
 
 /**
  * Privacy protocol class for Triple DES (DESEDE).

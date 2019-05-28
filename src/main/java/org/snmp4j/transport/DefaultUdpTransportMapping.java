@@ -8,15 +8,18 @@
 
 package org.snmp4j.transport;
 
+import org.snmp4j.SNMP4JSettings;
+import org.snmp4j.log.LogAdapter;
+import org.snmp4j.log.LogFactory;
+import org.snmp4j.smi.Address;
+import org.snmp4j.smi.OctetString;
+import org.snmp4j.smi.UdpAddress;
+import org.snmp4j.util.WorkerTask;
+
 import java.io.IOException;
+import java.io.InterruptedIOException;
 import java.net.*;
 import java.nio.ByteBuffer;
-
-import org.snmp4j.log.*;
-import org.snmp4j.smi.*;
-import org.snmp4j.SNMP4JSettings;
-import java.io.InterruptedIOException;
-import org.snmp4j.util.WorkerTask;
 
 /**
  * The <code>DefaultUdpTransportMapping</code> implements a UDP transport

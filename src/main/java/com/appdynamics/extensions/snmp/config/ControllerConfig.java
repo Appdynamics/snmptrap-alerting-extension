@@ -11,6 +11,9 @@ package com.appdynamics.extensions.snmp.config;
 
 public class ControllerConfig {
 
+    private static final String HTTPS = "https://";
+    private static final String HTTP = "http://";
+
     private String host;
     private int port;
     private String userAccount;
@@ -82,6 +85,18 @@ public class ControllerConfig {
 
     public void setSocketTimeoutInSeconds(int socketTimeoutInSeconds) {
         this.socketTimeoutInSeconds = socketTimeoutInSeconds;
+    }
+
+    public StringBuffer getControllerBaseUrl(ControllerConfig controller){
+        StringBuffer sb = new StringBuffer();
+        if(controller.isUseSsl()){
+            sb.append(HTTPS);
+        }
+        else{
+            sb.append(HTTP);
+        }
+        sb.append(controller.getHost()).append(":").append(controller.getPort());
+        return sb;
     }
 
     @Override

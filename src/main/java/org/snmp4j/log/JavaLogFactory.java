@@ -8,10 +8,10 @@
 
 package org.snmp4j.log;
 
+import java.util.Enumeration;
 import java.util.Iterator;
-import java.util.logging.Logger;
 import java.util.logging.LogManager;
-import java.util.*;
+import java.util.logging.Logger;
 
 /**
  * The <code>JavaLogFactory</code> implements a SNMP4J LogFactory for

@@ -8,8 +8,8 @@
 
 package org.snmp4j.asn1;
 
-import java.io.OutputStream;
 import java.io.IOException;
+import java.io.OutputStream;
 
 /**
  * The BER class provides utility methods for the BER encoding and decoding.

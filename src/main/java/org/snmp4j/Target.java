@@ -8,10 +8,11 @@
 
 package org.snmp4j;
 
-import java.io.Serializable;
 import org.snmp4j.smi.Address;
+
+import java.io.Serializable;
+
 // for JavaDoc
-import org.snmp4j.mp.SnmpConstants;
 
 /**
  * A <code>Target</code> interface defines an abstract representation of a

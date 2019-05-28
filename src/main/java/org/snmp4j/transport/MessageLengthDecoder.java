@@ -9,8 +9,8 @@
 
 package org.snmp4j.transport;
 
-import java.nio.ByteBuffer;
 import java.io.IOException;
+import java.nio.ByteBuffer;
 
 /**
  * The <code>MessageLengthDecoder</code> needs to be implemented for connection

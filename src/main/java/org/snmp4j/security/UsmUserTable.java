@@ -8,16 +8,12 @@
 
 package org.snmp4j.security;
 
-import java.io.Serializable;
-import java.util.TreeMap;
-
+import org.snmp4j.log.LogAdapter;
+import org.snmp4j.log.LogFactory;
 import org.snmp4j.smi.OctetString;
-import java.util.Iterator;
-import java.util.Map;
-import java.util.List;
-import java.util.LinkedList;
-import java.util.Collection;
-import org.snmp4j.log.*;
+
+import java.io.Serializable;
+import java.util.*;
 
 /**
  * The <code>UsmUserTable</code> class stores USM user

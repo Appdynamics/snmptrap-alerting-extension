@@ -8,8 +8,8 @@
 
 package org.snmp4j.log;
 
-import java.util.Iterator;
 import java.util.Collections;
+import java.util.Iterator;
 
 /**
  * The <code>ConsoleLogAdapter</code> provides simple logging to the console.

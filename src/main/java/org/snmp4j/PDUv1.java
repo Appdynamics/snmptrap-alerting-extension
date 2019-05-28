@@ -8,14 +8,16 @@
 
 package org.snmp4j;
 
-import java.io.*;
-import java.util.*;
-import org.snmp4j.asn1.*;
-import org.snmp4j.asn1.BER.*;
+import org.snmp4j.asn1.BER;
+import org.snmp4j.asn1.BER.MutableByte;
+import org.snmp4j.asn1.BERInputStream;
 import org.snmp4j.smi.*;
-import org.snmp4j.smi.OID;
+
+import java.io.IOException;
+import java.io.OutputStream;
+import java.util.Vector;
+
 // for JavaDoc
-import org.snmp4j.mp.SnmpConstants;
 
 /**
  * The <code>PDUv1</class> represents SNMPv1 PDUs. The behavior of this class

@@ -8,7 +8,8 @@
 
 package org.snmp4j.log;
 
-import java.util.*;
+import java.util.Collections;
+import java.util.Iterator;
 
 /**
  * A <code>LogProxy</code> can be used for late binding loggers. A proxy

@@ -11,7 +11,7 @@ package com.appdynamics.extensions.snmp.config;
 
 import org.apache.log4j.Logger;
 
-import java.io.*;
+import java.io.IOException;
 import java.util.Properties;
 import java.util.concurrent.TimeUnit;
 

@@ -10,9 +10,10 @@
 
 package org.snmp4j.util;
 
-import java.util.LinkedList;
-import org.snmp4j.log.LogFactory;
 import org.snmp4j.log.LogAdapter;
+import org.snmp4j.log.LogFactory;
+
+import java.util.LinkedList;
 
 /**
  * The <code>TaskScheduler</code> uses a <code>ThreadPool</code> to recurrent

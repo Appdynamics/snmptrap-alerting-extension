@@ -8,12 +8,16 @@
 
 package org.snmp4j.smi;
 
-import java.io.*;
-import java.net.*;
 import org.snmp4j.asn1.BER;
 import org.snmp4j.asn1.BERInputStream;
-import org.snmp4j.log.LogFactory;
 import org.snmp4j.log.LogAdapter;
+import org.snmp4j.log.LogFactory;
+
+import java.io.IOException;
+import java.io.OutputStream;
+import java.net.Inet6Address;
+import java.net.InetAddress;
+import java.net.UnknownHostException;
 
 /**
  * The <code>IpAddress</code> class represents an IPv4 address SNMP variable.

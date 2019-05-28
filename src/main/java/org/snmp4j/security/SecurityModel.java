@@ -8,14 +8,15 @@
 
 package org.snmp4j.security;
 
-import java.io.*;
-import org.snmp4j.mp.StatusInformation;
-import org.snmp4j.smi.OctetString;
-import org.snmp4j.smi.Integer32;
 import org.snmp4j.asn1.BERInputStream;
-// for JavaDoc
-import org.snmp4j.mp.SnmpConstants;
 import org.snmp4j.asn1.BEROutputStream;
+import org.snmp4j.mp.StatusInformation;
+import org.snmp4j.smi.Integer32;
+import org.snmp4j.smi.OctetString;
+
+import java.io.IOException;
+
+// for JavaDoc
 
 /**
  * The <code>SecurityModel</code> interface as described in RFC3411 section 4.4.

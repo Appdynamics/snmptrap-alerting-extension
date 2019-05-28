@@ -8,12 +8,13 @@
 
 package org.snmp4j.event;
 
-import java.util.EventObject;
+import org.snmp4j.smi.Counter32;
 import org.snmp4j.smi.OID;
 import org.snmp4j.smi.Variable;
-import org.snmp4j.smi.Counter32;
+
+import java.util.EventObject;
+
 // for JavaDoc
-import org.snmp4j.smi.Counter64;
 
 /**
  * <code>CounterEvent</code> is an event object that indicates that a specific

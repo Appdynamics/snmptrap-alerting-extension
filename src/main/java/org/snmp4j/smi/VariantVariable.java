@@ -9,6 +9,7 @@
 package org.snmp4j.smi;
 
 import org.snmp4j.asn1.BERInputStream;
+
 import java.io.IOException;
 import java.io.OutputStream;
 

@@ -8,7 +8,9 @@
 
 package org.snmp4j;
 
-import org.snmp4j.event.*;
+import org.snmp4j.event.ResponseEvent;
+import org.snmp4j.event.ResponseListener;
+
 import java.io.IOException;
 
 /**

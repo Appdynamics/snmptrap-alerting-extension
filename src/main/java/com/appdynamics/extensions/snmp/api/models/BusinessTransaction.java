@@ -6,8 +6,12 @@
  *
  */
 
-package com.appdynamics.extensions.snmp.api;
+package com.appdynamics.extensions.snmp.api.models;
 
+
+import org.codehaus.jackson.annotate.JsonIgnoreProperties;
+
+@JsonIgnoreProperties(ignoreUnknown = true)
 
 public class BusinessTransaction {
 

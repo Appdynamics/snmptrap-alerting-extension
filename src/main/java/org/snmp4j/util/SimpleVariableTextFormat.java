@@ -8,10 +8,10 @@
 
 package org.snmp4j.util;
 
-import java.text.*;
-
-import org.snmp4j.smi.*;
 import org.snmp4j.SNMP4JSettings;
+import org.snmp4j.smi.*;
+
+import java.text.ParseException;
 
 /**
  * The <code>SimpleVariableTextFormat</code> implements a simple textual

@@ -8,11 +8,12 @@
 
 package org.snmp4j;
 
-import java.util.EventObject;
+import org.snmp4j.mp.PduHandle;
 import org.snmp4j.mp.StateReference;
 import org.snmp4j.smi.Address;
-import org.snmp4j.mp.PduHandle;
 import org.snmp4j.smi.OctetString;
+
+import java.util.EventObject;
 
 /**
  * The <code>CommandResponderEvent</code> is fired by the

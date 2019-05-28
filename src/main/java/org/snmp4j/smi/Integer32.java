@@ -8,9 +8,11 @@
 
 package org.snmp4j.smi;
 
-import java.io.*;
 import org.snmp4j.asn1.BER;
 import org.snmp4j.asn1.BERInputStream;
+
+import java.io.IOException;
+import java.io.OutputStream;
 
 /**
  * The <code>Integer32</code> represents 32bit signed integer values for SNMP.

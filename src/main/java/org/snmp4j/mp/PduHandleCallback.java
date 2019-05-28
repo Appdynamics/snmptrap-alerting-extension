@@ -8,8 +8,6 @@
 
 package org.snmp4j.mp;
 
-import org.snmp4j.PDU;
-
 /**
  * The <code>PduHandleCallback</code> can be used to get informed about a
  * <code>PduHandle</code> creation before a request is actually sent out.

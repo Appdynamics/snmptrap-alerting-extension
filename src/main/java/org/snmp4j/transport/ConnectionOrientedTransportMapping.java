@@ -9,8 +9,9 @@
 
 package org.snmp4j.transport;
 
-import org.snmp4j.*;
+import org.snmp4j.TransportMapping;
 import org.snmp4j.smi.Address;
+
 import java.io.IOException;
 
 /**

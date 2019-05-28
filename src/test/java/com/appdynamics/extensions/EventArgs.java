@@ -28,11 +28,11 @@ public class EventArgs {
 
         strings.add("\"1\"");  //number of eval entities
         strings.add("\"APPLICATION_COMPONENT_NODE\"");   //eval entity type
-        strings.add("\"MyMacMachineAgentNode1\""); //eval entity name
+        strings.add("\"ECommerce_JMS_NODE\""); //eval entity name
         strings.add("\"8\"");  //eval entity id
         strings.add("\"1\"");  //number of triggered cond per eval entity
         strings.add("\"APPLICATION_COMPONENT_NODE\""); //scope type 1
-        strings.add("\"MyMacMachineAgentNode1\""); //scope name 1
+        strings.add("\"ECommerce_WEB1_NODE\""); //scope name 1
         strings.add("\"8\"");  //scope id 1
         strings.add("\"Hardware Resources|CPU|%Busy Condition\""); // condition name 1
         strings.add("\"113\"");  //condition id 1
@@ -57,11 +57,11 @@ public class EventArgs {
         generateLeadingArgs(strings);
         strings.add("\"2\"");  //number of eval entities
             strings.add("\"APPLICATION_COMPONENT_NODE\"");   //eval entity type
-            strings.add("\"MyMacMachineAgentNode1\""); //eval entity name
+            strings.add("\"ECommerce_JMS_NODE\""); //eval entity name
             strings.add("\"8\"");  //eval entity id
             strings.add("\"1\"");  //number of triggered cond per eval entity
             strings.add("\"APPLICATION_COMPONENT_NODE\""); //scope type 1
-            strings.add("\"MyMacMachineAgentNode1\""); //scope name 1
+            strings.add("\"ECommerce_WEB1_NODE\""); //scope name 1
             strings.add("\"8\"");  //scope id 1
             strings.add("\"Hardware Resources|CPU|%Busy Condition\""); // condition name 1
             strings.add("\"113\"");  //condition id 1
@@ -71,11 +71,11 @@ public class EventArgs {
             strings.add("\"40.0\"");  //observed value 1
 
             strings.add("\"APPLICATION\"");   //eval entity type
-            strings.add("\"MyMacMachineAgentNode2\""); //eval entity name
+            strings.add("\"AD-Travel\""); //eval entity name
             strings.add("\"9\"");  //eval entity id
             strings.add("\"1\"");  //number of triggered cond per eval entity
             strings.add("\"APPLICATION\""); //scope type 2
-            strings.add("\"MyMacMachineAgentNode2\""); //scope name 2
+            strings.add("\"AD-Financial-Cloud\""); //scope name 2
             strings.add("\"10\"");  //scope id 2
             strings.add("\"Hardware Resources|CPU|%Busy Condition\""); // condition name 2
             strings.add("\"114\"");  //condition id 2
@@ -149,13 +149,15 @@ public class EventArgs {
         generateLeadingArgs(strings);
         strings.add("\"2\"");  //number of eval entities
 
-        strings.add("\"APPLICATION_COMPONENT_NODE\"");   //eval entity type
-        strings.add("\"MyMacMachineAgentNode1\""); //eval entity name
+        /*strings.add("\"APPLICATION_COMPONENT_NODE\"");   //eval entity type
+        strings.add("\"ECommerce_JMS_NODE\""); //eval entity name*/
+        strings.add("BUSINESS_TRANSACTION");
+        strings.add("MessageConsumer:OrderQueue");
         strings.add("\"8\"");  //eval entity id
         strings.add("\"2\"");  //number of triggered cond per eval entity
 
         strings.add("\"APPLICATION_COMPONENT_NODE\""); //scope type 1
-        strings.add("\"MyMacMachineAgentNode1\""); //scope name 1
+        strings.add("\"ECommerce_WEB2_NODE\""); //scope name 1
         strings.add("\"8\"");  //scope id 1
         strings.add("\"Hardware Resources|CPU|%Busy Condition\""); // condition name 1
         strings.add("\"113\"");  //condition id 1
@@ -167,8 +169,8 @@ public class EventArgs {
         strings.add("\"4\"");  //threshhold value 1
         strings.add("\"40.0\"");  //observed value 1
 
-        strings.add("\"APPLICATION_COMPONENT\""); //scope type 2
-        strings.add("\"MyMacMachineAgentNode1\""); //scope name 2
+        strings.add("\"APPLICATION_COMPONENT_NODE\""); //scope type 2
+        strings.add("\"ECommerce_WEB1_NODE\""); //scope name 2
         strings.add("\"9\"");  //scope id 2
         strings.add("\"Hardware Resources|CPU|%Busy Condition\""); // condition name 2
         strings.add("\"114\"");  //condition id 2
@@ -179,12 +181,12 @@ public class EventArgs {
         strings.add("\"50.0\"");  //observed value 2
 
         strings.add("\"APPLICATION\"");   //eval entity type
-        strings.add("\"MyMacMachineAgentNode2\""); //eval entity name
+        strings.add("\"AD-Financial-Cloud\""); //eval entity name
         strings.add("\"9\"");  //eval entity id
         strings.add("\"1\"");  //number of triggered cond per eval entity
 
         strings.add("\"APPLICATION\""); //scope type 1
-        strings.add("\"MyMacMachineAgentNode2\""); //scope name 1
+        strings.add("\"AD-Travel\""); //scope name 1
         strings.add("\"10\"");  //scope id 1
         strings.add("\"Hardware Resources|CPU|%Busy Condition\""); // condition name 1
         strings.add("\"114\"");  //condition id 1
@@ -202,13 +204,13 @@ public class EventArgs {
     public String[] getOtherEvent(){
         List<String> strings = Lists.newArrayList();
         strings.add("\"MyMacMachineAgent\""); //appname
-        strings.add("\"4\""); //appID
+        strings.add("\"269\""); //appID
         strings.add("\"Wed Apr 30 09:42:55 PDT 2014\""); //event notification time
         strings.add("\"1\""); //priority
         strings.add("\"ERROR\""); //severity
         strings.add("\"VictorOpsAction\"");  //tag
         strings.add("\"App Server restart\"");  //event notification name
-        strings.add("\"24\"");  //event notification id
+        strings.add("\"249166438\"");  //event notification id
         strings.add("\"2\"");  //event notification time period in mins
         strings.add("\"2\"");  //number of event types
 
@@ -246,7 +248,7 @@ public class EventArgs {
 
     private void generateLeadingArgs(List<String> strings) {
         strings.add("\"MyMacMachineAgent\""); //appname
-        strings.add("\"4\""); //appID
+        strings.add("\"269\""); //appID
         strings.add("\"Wed Apr 30 09:42:55 PDT 2014\""); //pvn alert time
         strings.add("\"1\""); //priority
         strings.add("\"ERROR\""); //severity
@@ -254,8 +256,12 @@ public class EventArgs {
         strings.add("\"CPU utilization is too high\"");  //health rule name
         strings.add("\"24\"");  //health rule id
         strings.add("\"1\"");  //pvn time period in min
-        strings.add("\"APPLICATION_COMPONENT_NODE\"");  //affected entity type
-        strings.add("\"MyMacMachineAgentNode1\""); //affected entity name
+        /*strings.add("\"APPLICATION_COMPONENT_NODE\"");  //affected entity type
+        strings.add("\"ECommerce-Apache\""); //affected entity name*/
+        /*strings.add("\"APPLICATION_COMPONENT\"");  //affected entity type
+        strings.add("\"Inventory-Services\""); //affected entity name*/
+        strings.add("\"BUSINESS_TRANSACTION\"");  //affected entity type
+        strings.add("\"/cart/orderService\""); //affected entity name
         strings.add("\"8\"");  //affected entity id
     }
 
@@ -263,7 +269,18 @@ public class EventArgs {
     public void testEvent(){
         String[] args = getHealthRuleViolationEventWithMultipleEvalEntityAndMultipleTriggerBaseline();
         Event event = new EventBuilder().build(args);
-        Configuration config = ConfigLoader.getConfig(false,null);
+        System.setProperty("SNMP_TRAP_SENDER_HOME",this.getClass().getResource("/").getFile());
+        Configuration config = ConfigLoader.getConfig();
+        SnmpTrapAlertExtension snmpTrap = new SnmpTrapAlertExtension(config);
+        snmpTrap.process(event);
+    }
+
+    @Test
+    public void testOtherEvent(){
+        String[] args = getOtherEvent();
+        Event event = new EventBuilder().build(args);
+        System.setProperty("SNMP_TRAP_SENDER_HOME",this.getClass().getResource("/").getFile());
+        Configuration config = ConfigLoader.getConfig();
         SnmpTrapAlertExtension snmpTrap = new SnmpTrapAlertExtension(config);
         snmpTrap.process(event);
     }

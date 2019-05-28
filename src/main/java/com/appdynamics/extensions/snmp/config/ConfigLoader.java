@@ -9,7 +9,6 @@
 package com.appdynamics.extensions.snmp.config;
 
 
-import com.appdynamics.TaskInputArgs;
 import com.appdynamics.extensions.crypto.CryptoUtil;
 import com.appdynamics.extensions.yml.YmlReader;
 import com.google.common.base.Strings;
@@ -19,26 +18,31 @@ import org.apache.log4j.Logger;
 import java.io.File;
 import java.util.Map;
 
+import static com.appdynamics.TaskInputArgs.ENCRYPTION_KEY;
+import static com.appdynamics.TaskInputArgs.PASSWORD_ENCRYPTED;
+
+
 public class ConfigLoader {
 
-    public static final String TRAP_SENDER_HOME = "SNMP_TRAP_SENDER_HOME";
-    public static final String CONFIG_FILENAME =  "config.yaml";
-    public static final String SINGLE_TENANT_CONFIG_DIR = "conf" + File.separator;
-    public static final String MULTI_TENANT_CONFIG_DIR = "conf" + File.separator + "accounts" + File.separator;
-    public static final String SNMP_ENGINE_PROPERTIES = "snmp_engine.properties";
+    private static final String TRAP_SENDER_HOME = "SNMP_TRAP_SENDER_HOME";
+    private static final String CONFIG_FILENAME =  "config.yaml";
+    private static final String CONFIG_DIR = "conf" + File.separator;
+    private static final String SNMP_ENGINE_PROPERTIES = "snmp_engine.properties";
     private static Logger logger = Logger.getLogger(ConfigLoader.class);
 
-    public static Configuration getConfig(boolean isMultiTenant, String accountId){
-        String configDir = getConfigDir(isMultiTenant,accountId);
-        String trapSenderHome = getTrapSenderHome();
-        String configFile = trapSenderHome + configDir + CONFIG_FILENAME;
+    public static Configuration getConfig(){
+        String configFile = getConfigFile();
         Configuration config = YmlReader.readFromFile(configFile, Configuration.class);
-        config.setIsMultiTenant(isMultiTenant);
-        config.setAccountName(accountId);
         if(validateEncryptionFields(config)) {
             decryptPasswords(config);
         }
+        logger.debug("Configuration Loaded.");
         return config;
+    }
+
+    private static String getConfigFile() {
+        String trapSenderHome = getTrapSenderHome();
+        return trapSenderHome + CONFIG_DIR + CONFIG_FILENAME;
     }
 
     private static boolean validateEncryptionFields(Configuration config) {
@@ -67,28 +71,18 @@ public class ConfigLoader {
 
     private static Map<String,String> createTaskArgs(String encryptionKey, String password) {
         Map<String,String> taskArgs = Maps.newHashMap();
-        taskArgs.put(TaskInputArgs.ENCRYPTION_KEY, encryptionKey);
-        taskArgs.put(TaskInputArgs.PASSWORD_ENCRYPTED, password);
+        taskArgs.put(ENCRYPTION_KEY, encryptionKey);
+        taskArgs.put(PASSWORD_ENCRYPTED, password);
         return taskArgs;
     }
 
-    public static String getTrapSenderHome() {
+    private static String getTrapSenderHome() {
         return System.getProperty(TRAP_SENDER_HOME,"");
     }
 
-    public static String getConfigDir(boolean isMultiTenant, String accountName) {
-        if(isMultiTenant){
-            return MULTI_TENANT_CONFIG_DIR + accountName + File.separator;
-        }
-        else{
-            return SINGLE_TENANT_CONFIG_DIR;
-        }
-    }
 
-
-    public static String getEngineConfig(boolean isMultiTenant, String accountName) {
-        String configDir = ConfigLoader.getConfigDir(isMultiTenant, accountName);
-        String enginePropFile = configDir + SNMP_ENGINE_PROPERTIES;
+    public static String getEngineConfig() {
+        String enginePropFile = CONFIG_DIR + SNMP_ENGINE_PROPERTIES;
         String trapSenderHome = getTrapSenderHome();
         return trapSenderHome + enginePropFile;
     }

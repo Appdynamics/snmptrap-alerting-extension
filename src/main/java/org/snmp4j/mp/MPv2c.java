@@ -8,25 +8,23 @@
 
 package org.snmp4j.mp;
 
-import org.snmp4j.MessageDispatcher;
-import org.snmp4j.smi.Address;
+import org.snmp4j.*;
+import org.snmp4j.asn1.BER;
+import org.snmp4j.asn1.BER.MutableByte;
 import org.snmp4j.asn1.BERInputStream;
+import org.snmp4j.asn1.BEROutputStream;
+import org.snmp4j.log.LogAdapter;
+import org.snmp4j.log.LogFactory;
+import org.snmp4j.security.SecurityLevel;
+import org.snmp4j.security.SecurityModel;
+import org.snmp4j.security.SecurityModels;
+import org.snmp4j.smi.Address;
 import org.snmp4j.smi.Integer32;
 import org.snmp4j.smi.OctetString;
-import org.snmp4j.MutablePDU;
-import java.io.IOException;
-import org.snmp4j.PDU;
-import org.snmp4j.log.*;
-import org.snmp4j.ScopedPDU;
-import org.snmp4j.asn1.BER;
-import org.snmp4j.security.SecurityModel;
-import org.snmp4j.asn1.BER.MutableByte;
-import org.snmp4j.security.SecurityModels;
-import org.snmp4j.security.SecurityLevel;
-import org.snmp4j.asn1.BEROutputStream;
-import java.nio.ByteBuffer;
 import org.snmp4j.util.PDUFactory;
-import org.snmp4j.Target;
+
+import java.io.IOException;
+import java.nio.ByteBuffer;
 
 /**
  * The <code>MPv2c</code> is the message processing model for SNMPv2c

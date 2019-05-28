@@ -10,11 +10,12 @@
 
 package org.snmp4j.transport;
 
-import org.snmp4j.smi.Address;
 import org.snmp4j.TransportMapping;
+import org.snmp4j.smi.Address;
+
 import java.nio.ByteBuffer;
+
 // JavaDoc import
-import org.snmp4j.MessageDispatcher;
 
 /**
  * The <code>TransportListener</code> interface is implemented by objects

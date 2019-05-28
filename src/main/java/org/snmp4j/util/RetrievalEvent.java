@@ -8,10 +8,11 @@
 
 package org.snmp4j.util;
 
-import java.util.EventObject;
 import org.snmp4j.PDU;
 import org.snmp4j.smi.VariableBinding;
+
 import java.util.Arrays;
+import java.util.EventObject;
 
 /**
  * The <code>RetrievalEvent</code> is an abstract class representing the result

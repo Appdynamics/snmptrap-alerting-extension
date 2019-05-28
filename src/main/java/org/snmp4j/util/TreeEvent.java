@@ -8,8 +8,8 @@
 
 package org.snmp4j.util;
 
-import org.snmp4j.smi.VariableBinding;
 import org.snmp4j.PDU;
+import org.snmp4j.smi.VariableBinding;
 
 /**
  * The <code>TreeEvent</code> class reports events in a tree retrieval

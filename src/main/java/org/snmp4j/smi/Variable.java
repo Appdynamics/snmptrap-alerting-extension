@@ -8,7 +8,7 @@
 
 package org.snmp4j.smi;
 
-import org.snmp4j.asn1.*;
+import org.snmp4j.asn1.BERSerializable;
 
 /**
  * The <code>Variable</code> interface defines common attributes of all SNMP

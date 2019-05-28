@@ -8,9 +8,11 @@
 
 package org.snmp4j.log;
 
-import org.apache.log4j.*;
-import java.util.Iterator;
+import org.apache.log4j.Level;
+import org.apache.log4j.Logger;
 import org.snmp4j.util.EnumerationIterator;
+
+import java.util.Iterator;
 
 /**
  * The <code>Log4jLogAdapter</code> implements a logging adapter for Log4J.

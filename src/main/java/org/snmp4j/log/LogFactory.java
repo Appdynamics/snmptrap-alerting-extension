@@ -8,8 +8,8 @@
 
 package org.snmp4j.log;
 
-import java.util.Iterator;
 import java.util.Collections;
+import java.util.Iterator;
 
 /**
  * The <code>LogFactory</code> singleton is used by SNMP4J to determine

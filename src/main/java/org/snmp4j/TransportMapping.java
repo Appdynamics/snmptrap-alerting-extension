@@ -10,9 +10,10 @@
 
 package org.snmp4j;
 
-import java.io.IOException;
 import org.snmp4j.smi.Address;
 import org.snmp4j.transport.TransportListener;
+
+import java.io.IOException;
 
 /**
  * The <code>TransportMapping</code> defines the common interface for SNMP

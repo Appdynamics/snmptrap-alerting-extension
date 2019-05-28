@@ -8,11 +8,18 @@
 
 package org.snmp4j.smi;
 
-import java.io.*;
-import java.util.*;
-import org.snmp4j.log.*;
-import org.snmp4j.asn1.BERInputStream;
 import org.snmp4j.SNMP4JSettings;
+import org.snmp4j.asn1.BERInputStream;
+import org.snmp4j.log.LogAdapter;
+import org.snmp4j.log.LogFactory;
+
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.OutputStream;
+import java.util.Enumeration;
+import java.util.Map;
+import java.util.Properties;
+import java.util.TreeMap;
 
 /**
  * The <code>GenericAddress</code> implements the decorator and factory

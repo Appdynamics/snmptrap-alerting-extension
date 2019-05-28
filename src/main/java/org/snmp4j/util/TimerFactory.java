@@ -8,8 +8,6 @@
 
 package org.snmp4j.util;
 
-import java.util.Timer;
-
 /**
  * The <code>TimerFactory</code> describes a factory for
  * <code>CommonTimer</code> instances.

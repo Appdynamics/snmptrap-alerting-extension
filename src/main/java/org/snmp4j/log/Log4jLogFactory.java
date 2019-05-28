@@ -9,9 +9,10 @@
 package org.snmp4j.log;
 
 import org.apache.log4j.Logger;
-import java.util.Iterator;
-import java.util.Collections;
+
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Iterator;
 
 /**
  * The <code>Log4jLogFactory</code> implements a SNMP4J LogFactory for

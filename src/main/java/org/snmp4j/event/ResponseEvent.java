@@ -8,12 +8,12 @@
 
 package org.snmp4j.event;
 
-import java.util.EventObject;
-
 import org.snmp4j.PDU;
 import org.snmp4j.smi.Address;
+
+import java.util.EventObject;
+
 // Imports needed for JavaDoc
-import org.snmp4j.Session;
 
 /**
  * <code>ResponseEvent</code> associates a request PDU with the corresponding

@@ -8,35 +8,14 @@
 
 package org.snmp4j.util;
 
-import org.snmp4j.Snmp;
-import java.util.Map;
-import org.snmp4j.Target;
-import java.util.Properties;
+import org.snmp4j.*;
 import org.snmp4j.mp.MPv3;
-import org.snmp4j.smi.OctetString;
 import org.snmp4j.mp.SnmpConstants;
-import org.snmp4j.CommunityTarget;
-import org.snmp4j.SecureTarget;
-import org.snmp4j.UserTarget;
-import org.snmp4j.smi.GenericAddress;
-import org.snmp4j.security.USM;
-import org.snmp4j.security.UsmUser;
-import org.snmp4j.smi.OID;
-import org.snmp4j.security.AuthMD5;
-import org.snmp4j.security.AuthSHA;
-import org.snmp4j.security.PrivDES;
-import org.snmp4j.security.Priv3DES;
-import org.snmp4j.security.PrivAES128;
-import org.snmp4j.security.PrivAES192;
-import org.snmp4j.security.PrivAES256;
-import org.snmp4j.PDU;
-import org.snmp4j.ScopedPDU;
-import org.snmp4j.security.SecurityLevel;
-import org.snmp4j.PDUv1;
-import org.snmp4j.smi.IpAddress;
-import org.snmp4j.smi.VariableBinding;
-import org.snmp4j.smi.TimeTicks;
-import org.snmp4j.security.SecurityModel;
+import org.snmp4j.security.*;
+import org.snmp4j.smi.*;
+
+import java.util.Map;
+import java.util.Properties;
 
 /**
  * The <code>SnmpConfigurator</code> class configures a {@link org.snmp4j.Snmp} instance

@@ -8,10 +8,11 @@
 
 package org.snmp4j.util;
 
-import java.text.ParseException;
 import org.snmp4j.smi.OID;
 import org.snmp4j.smi.Variable;
 import org.snmp4j.smi.VariableBinding;
+
+import java.text.ParseException;
 
 /**
  * The <code>VariableTextFormat</code> provides a textual representation

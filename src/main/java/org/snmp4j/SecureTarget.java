@@ -8,11 +8,12 @@
 
 package org.snmp4j;
 
-import org.snmp4j.smi.OctetString;
-import java.io.*;
 import org.snmp4j.security.SecurityLevel;
 import org.snmp4j.security.SecurityModel;
 import org.snmp4j.smi.Address;
+import org.snmp4j.smi.OctetString;
+
+import java.io.Serializable;
 
 /**
  * The <code>SecureTarget</code> is an security model independent abstract class

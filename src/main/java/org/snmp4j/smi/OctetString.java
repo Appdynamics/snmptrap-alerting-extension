@@ -8,10 +8,12 @@
 
 package org.snmp4j.smi;
 
-import java.io.*;
-import java.util.*;
 import org.snmp4j.asn1.BER;
 import org.snmp4j.asn1.BERInputStream;
+
+import java.io.IOException;
+import java.io.OutputStream;
+import java.util.*;
 
 /**
  * The <code>OctetString</code> class represents the SMI type OCTET STRING.

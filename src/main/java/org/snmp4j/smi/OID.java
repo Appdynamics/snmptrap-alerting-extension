@@ -8,12 +8,15 @@
 
 package org.snmp4j.smi;
 
-import java.io.*;
-import java.util.*;
+import org.snmp4j.SNMP4JSettings;
 import org.snmp4j.asn1.BER;
 import org.snmp4j.asn1.BERInputStream;
-import org.snmp4j.SNMP4JSettings;
+
+import java.io.IOException;
+import java.io.OutputStream;
 import java.text.ParseException;
+import java.util.Arrays;
+import java.util.NoSuchElementException;
 
 /**
  * The Object Identifier Class.

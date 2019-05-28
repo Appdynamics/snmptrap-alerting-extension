@@ -8,10 +8,10 @@
 
 package org.snmp4j.transport;
 
-import java.io.*;
-import java.util.*;
+import org.snmp4j.smi.Address;
 
-import org.snmp4j.smi.*;
+import java.io.IOException;
+import java.util.EventObject;
 
 /**
  * The <code>TransportStateEvent</code> describes a state change for

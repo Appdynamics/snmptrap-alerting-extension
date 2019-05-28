@@ -12,11 +12,11 @@
 
 package org.snmp4j;
 
-import org.snmp4j.smi.OctetString;
 import org.snmp4j.security.SecurityModel;
-// for JavaDoc
-import org.snmp4j.security.SecurityLevel;
 import org.snmp4j.smi.Address;
+import org.snmp4j.smi.OctetString;
+
+// for JavaDoc
 
 /**
  * User based target for SNMPv3 or later.

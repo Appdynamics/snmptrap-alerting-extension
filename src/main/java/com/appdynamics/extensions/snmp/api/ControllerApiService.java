@@ -1,40 +1,36 @@
-/*
- *   Copyright 2018. AppDynamics LLC and its affiliates.
- *   All Rights Reserved.
- *   This is unpublished proprietary source code of AppDynamics LLC and its affiliates.
- *   The copyright notice above does not evidence any actual or intended publication of such source code.
- *
- */
-
 package com.appdynamics.extensions.snmp.api;
-
 
 import com.appdynamics.extensions.http.Response;
 import com.appdynamics.extensions.http.SimpleHttpClient;
+import com.appdynamics.extensions.snmp.api.models.BusinessTransaction;
+import com.appdynamics.extensions.snmp.api.models.ControllerEvent;
+import com.appdynamics.extensions.snmp.api.models.Node;
 import com.google.common.collect.Lists;
 import org.apache.log4j.Logger;
 
 import java.net.HttpURLConnection;
+import java.util.Arrays;
 import java.util.List;
 
-public class ServiceImpl implements IService {
+public class ControllerApiService {
+    private static Logger logger = Logger.getLogger(ControllerApiService.class);
+    private SimpleHttpClient simpleHttpClient;
 
-    private static Logger logger = Logger.getLogger(ServiceImpl.class);
+    public ControllerApiService(SimpleHttpClient client) {
+        this.simpleHttpClient = client;
+    }
 
-    @Override
-    public List<BusinessTransaction> getBTs(HttpClientBuilder httpClientBuilder, String endpoint) throws ServiceException {
+    public List<BusinessTransaction> getBTs(String endpoint) throws ServiceException {
         logger.debug("getBTs :: building http client");
-        SimpleHttpClient simpleHttpClient = null;
         try {
-            simpleHttpClient = httpClientBuilder.buildHttpClient(BusinessTransactionWrapper.class);
             logger.debug("getBTs :: target url" + endpoint);
             Response response = simpleHttpClient.target(endpoint).get();
-            BusinessTransactionWrapper btWrapper = null;
+            BusinessTransaction[] bts = null;
             if (response != null && response.getStatus() == HttpURLConnection.HTTP_OK) {
-                btWrapper = response.xml(BusinessTransactionWrapper.class);
-                if (btWrapper != null && btWrapper.getBusinessTransactions()!= null) {
+                bts = response.json(BusinessTransaction[].class);
+                if (bts != null ) {
                     logger.debug("getBTs :: returning successfully");
-                    return btWrapper.getBusinessTransactions();
+                    return Arrays.asList(bts);
                 }
             }
         }
@@ -49,20 +45,17 @@ public class ServiceImpl implements IService {
         return Lists.newArrayList();
     }
 
-    @Override
-    public List<Node> getNodes(HttpClientBuilder httpClientBuilder, String endpoint) throws ServiceException {
+    public List<Node> getNodes(String endpoint) throws ServiceException {
         logger.debug("getNodes :: building http client");
-        SimpleHttpClient simpleHttpClient = null;
         try {
-            simpleHttpClient = httpClientBuilder.buildHttpClient(NodeWrapper.class);
             logger.debug("getNodes :: target url" + endpoint);
             Response response = simpleHttpClient.target(endpoint).get();
-            NodeWrapper nodeWrapper = null;
+            Node[] nodes = null;
             if (response != null && response.getStatus() == HttpURLConnection.HTTP_OK) {
-                nodeWrapper = response.xml(NodeWrapper.class);
-                if (nodeWrapper != null && nodeWrapper.getNodes()!= null) {
+                nodes = response.json(Node[].class);
+                if (nodes != null) {
                     logger.debug("getNodes :: returning successfully");
-                    return nodeWrapper.getNodes();
+                    return Arrays.asList(nodes);
                 }
             }
         }
@@ -77,7 +70,27 @@ public class ServiceImpl implements IService {
         return Lists.newArrayList();
     }
 
-
+    public List<ControllerEvent> getEvents(String endpoint) throws ServiceException{
+        logger.debug("getEvents :: building http client");
+        try {
+            logger.debug("getEvents :: target url" + endpoint);
+            Response response = simpleHttpClient.target(endpoint).get();
+            ControllerEvent[] events = null;
+            if (response != null && response.getStatus() == HttpURLConnection.HTTP_OK) {
+                events = response.json(ControllerEvent[].class);
+                if (events != null) {
+                    logger.debug("getEvents :: returning successfully");
+                    return Arrays.asList(events);
+                }
+            }
+        }
+        catch(Exception e){
+            String msg = "getEvents :: unable to get events for " + endpoint;
+            logger.error(msg,e);
+            throw new ServiceException(msg,e);
+        }
+        return Lists.newArrayList();
+    }
 
    /* @Override
     public List<Application> getApplications(ServiceBuilder serviceBuilder,String endpoint) throws ServiceException{
@@ -126,29 +139,9 @@ public class ServiceImpl implements IService {
         }
         return Lists.newArrayList();
     }
+    */
 
-    @Override
-    public List<Event> getEvents(ServiceBuilder serviceBuilder,String endpoint) throws ServiceException{
-        logger.debug("getEvents :: building http client");
-        try {
-            SimpleHttpClient simpleHttpClient = serviceBuilder.buildHttpClient(EventWrapper.class);
-            logger.debug("getEvents :: target url" + endpoint);
-            Response response = simpleHttpClient.target(endpoint).get();
-            EventWrapper eventWrapper = null;
-            if (response != null && response.getStatus() == HttpURLConnection.HTTP_OK) {
-                eventWrapper = response.xml(EventWrapper.class);
-                if (eventWrapper != null && eventWrapper.getEvents() != null) {
-                    logger.debug("getEvents :: returning successfully");
-                    return eventWrapper.getEvents();
-                }
-            }
-        }
-        catch(Exception e){
-            String msg = "getEvents :: unable to get applications for " + endpoint;
-            logger.error(msg,e);
-            throw new ServiceException(msg,e);
-        }
-        return Lists.newArrayList();
-    }*/
 
 }
+
+

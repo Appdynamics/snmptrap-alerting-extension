@@ -8,19 +8,23 @@
 
 package org.snmp4j.tools.console;
 
-import java.io.*;
-import java.util.*;
-
 import org.snmp4j.*;
-import org.snmp4j.asn1.*;
-import org.snmp4j.event.*;
-import org.snmp4j.log.*;
+import org.snmp4j.asn1.BER;
+import org.snmp4j.event.ResponseEvent;
+import org.snmp4j.log.JavaLogFactory;
+import org.snmp4j.log.LogFactory;
+import org.snmp4j.log.LogLevel;
 import org.snmp4j.mp.*;
 import org.snmp4j.security.*;
 import org.snmp4j.smi.*;
-import org.snmp4j.transport.*;
+import org.snmp4j.transport.AbstractTransportMapping;
+import org.snmp4j.transport.DefaultTcpTransportMapping;
+import org.snmp4j.transport.DefaultUdpTransportMapping;
 import org.snmp4j.util.*;
 import org.snmp4j.version.VersionInfo;
+
+import java.io.*;
+import java.util.*;
 
 /**
  * The SnmpRequest application is an example implementation of most of the

@@ -9,8 +9,8 @@
 package org.snmp4j.security;
 
 import org.snmp4j.User;
-import org.snmp4j.smi.OctetString;
 import org.snmp4j.smi.OID;
+import org.snmp4j.smi.OctetString;
 
 /**
  * The <code>UsmUser</code> class represents USM user providing information

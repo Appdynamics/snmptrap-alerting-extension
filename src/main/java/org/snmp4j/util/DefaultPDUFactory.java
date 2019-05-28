@@ -9,7 +9,10 @@
 
 package org.snmp4j.util;
 
-import org.snmp4j.*;
+import org.snmp4j.PDU;
+import org.snmp4j.PDUv1;
+import org.snmp4j.ScopedPDU;
+import org.snmp4j.Target;
 import org.snmp4j.mp.SnmpConstants;
 
 /**

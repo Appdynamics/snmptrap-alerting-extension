@@ -13,9 +13,6 @@ import java.util.Iterator;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
-import org.snmp4j.log.LogAdapter;
-import org.snmp4j.log.LogLevel;
-
 /**
  * The <code>JavaLogAdapter</code> log adapter provides logging for SNMP4J
  * through the Java logging (<code>java.util.logging</code>).

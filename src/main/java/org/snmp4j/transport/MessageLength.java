@@ -8,7 +8,7 @@
 
 package org.snmp4j.transport;
 
-import java.io.*;
+import java.io.Serializable;
 
 /**
  * The <code>MessageLength</code> object contains information about the

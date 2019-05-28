@@ -6,18 +6,16 @@
  *
  */
 
-package com.appdynamics.extensions.snmp.api;
+package com.appdynamics.extensions.snmp.api.models;
 
 import com.google.common.base.Strings;
 import com.google.common.collect.Lists;
+import org.codehaus.jackson.annotate.JsonIgnoreProperties;
 
-import javax.xml.bind.annotation.XmlAccessType;
-import javax.xml.bind.annotation.XmlAccessorType;
-import javax.xml.bind.annotation.XmlElement;
-import javax.xml.bind.annotation.XmlElementWrapper;
 import java.util.List;
+import java.util.Map;
 
-@XmlAccessorType(XmlAccessType.FIELD)
+@JsonIgnoreProperties(ignoreUnknown = true)
 public class Node {
 
     private int id;
@@ -32,9 +30,7 @@ public class Node {
     private boolean appAgentPresent;
     private String appAgentVersion;
 
-    @XmlElementWrapper(name="ipAddresses")
-    @XmlElement(name="ipAddress")
-    private List<String> ipAddresses;
+    private Map ipAddresses;
 
     public int getId() {
         return id;
@@ -131,13 +127,13 @@ public class Node {
     }
 
     public List<String> getIpAddresses() {
-        if(ipAddresses == null){
-            ipAddresses = Lists.newArrayList();
+        if(ipAddresses != null && ipAddresses.get("ipAddresses") != null){
+            return (List)ipAddresses.get("ipAddresses");
         }
-        return ipAddresses;
+        return Lists.newArrayList();
     }
 
-    public void setIpAddresses(List<String> ipAddresses) {
+    public void setIpAddresses(Map ipAddresses) {
         this.ipAddresses = ipAddresses;
     }
 }

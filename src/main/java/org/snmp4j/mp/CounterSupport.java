@@ -10,8 +10,10 @@
 
 package org.snmp4j.mp;
 
-import org.snmp4j.event.*;
-import java.util.*;
+import org.snmp4j.event.CounterEvent;
+import org.snmp4j.event.CounterListener;
+
+import java.util.Vector;
 
 /**
  * The <code>CounterSupport</code> class provides support to fire

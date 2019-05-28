@@ -10,6 +10,7 @@ package com.appdynamics.extensions.snmp;
 
 
 import com.appdynamics.extensions.snmp.config.*;
+import com.appdynamics.extensions.snmp.model.ADSnmpData;
 import org.apache.log4j.Logger;
 import org.snmp4j.*;
 import org.snmp4j.mp.MPv3;
@@ -21,11 +22,9 @@ import org.snmp4j.transport.DefaultUdpTransportMapping;
 import java.io.IOException;
 import java.lang.reflect.Field;
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
 
 import static com.appdynamics.extensions.snmp.CommonUtils.getSysUptime;
-import static com.appdynamics.extensions.snmp.CommonUtils.getTimeTicks;
 
 public class SNMPSender {
 
@@ -41,7 +40,7 @@ public class SNMPSender {
 
 
 
-    public void sendTrap(Configuration config, ADSnmpData snmpData,String trapOid) {
+    public void sendTrap(Configuration config, ADSnmpData snmpData, String trapOid) {
 
         ArrayList<String> exceptions = new ArrayList<String>();
         //sending SNMP traps to all registered receivers
@@ -54,7 +53,7 @@ public class SNMPSender {
                 } else if (config.getSnmpVersion() == SNMP_V2) {
                     sendV2Trap(receiver.getHost(), Integer.toString(receiver.getPort()), config.getCommunity(), config.getSenderHost(), snmpData,trapOid);
                 } else if (config.getSnmpVersion() == SNMP_V3) {
-                    String propertiesFile = ConfigLoader.getEngineConfig(config.getIsMultiTenant(), config.getAccountName());
+                    String propertiesFile = ConfigLoader.getEngineConfig();
                     logger.info("Loading engine properties from " + propertiesFile);
                     EngineProperties engineProperties = new EngineProperties(propertiesFile);
                     //logger.debug("Loaded Engine Properties => " + engineProperties);

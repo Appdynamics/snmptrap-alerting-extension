@@ -8,8 +8,8 @@
 
 package org.snmp4j.log;
 
-import java.util.Iterator;
 import java.util.Collections;
+import java.util.Iterator;
 
 /**
  * The <code>NoLogger</code> implements a <code>LogAdapter</code> that does

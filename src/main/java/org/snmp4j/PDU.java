@@ -10,14 +10,17 @@
 
 package org.snmp4j;
 
-import org.snmp4j.smi.*;
-import org.snmp4j.asn1.*;
+import org.snmp4j.asn1.BER;
+import org.snmp4j.asn1.BERInputStream;
+import org.snmp4j.asn1.BERSerializable;
+import org.snmp4j.mp.SnmpConstants;
+import org.snmp4j.smi.Integer32;
+import org.snmp4j.smi.VariableBinding;
+
 import java.io.IOException;
 import java.io.OutputStream;
-import java.util.Vector;
-import org.snmp4j.smi.Integer32;
-import org.snmp4j.mp.SnmpConstants;
 import java.io.Serializable;
+import java.util.Vector;
 
 /**
  * The <code>PDU</code> class represents a SNMP protocol data unit. The PDU

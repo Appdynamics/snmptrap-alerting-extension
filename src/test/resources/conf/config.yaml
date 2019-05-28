@@ -61,13 +61,20 @@ fetchMachineInfoFromApi: true
 #the custom actions don't get enough context like the Machine Names, IP addresses of the nodes
 #that are affected. Using the below info, the extension makes an effort to get the details from REST APIs.
 controller:
-  host: "mywindows.appdynamics.com"
-  port: 8090
-  useSsl: true
-  userAccount: "kunal@customer1"
-  #password: "appdynamics"
-  encryptedPassword: "jVuK3ykD21GaWp9oNrWE9Q=="
+  host: "d"
+  port: 80
+  useSsl: false
+  userAccount: ""
+  password: ""
+  #encryptedPassword: "jVuK3ykD21GaWp9oNrWE9Q=="
   connectTimeoutInSeconds: 50
   socketTimeoutInSeconds: 10
+
+
+#event types. Add more events from https://docs.appdynamics.com/display/PRO45/Events+Reference
+eventTypes: ["APPLICATION_ERROR","DEADLOCK","APP_SERVER_RESTART","APPLICATION_CONFIG_CHANGE","DIAGNOSTIC_SESSION","STALL","APPLICATION_CRASH","APPLICATION_DEPLOYMENT","NODE_DISCOVERED","SLOW","TIER_DISCOVERED","VERY_SLOW"]
+severities: ["INFO","WARN","ERROR"]
+durationInMins: 10
+
 
 ######AppD information end#################

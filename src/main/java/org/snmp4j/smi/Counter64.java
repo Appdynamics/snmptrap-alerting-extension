@@ -12,10 +12,12 @@
 
 package org.snmp4j.smi;
 
-import java.io.*;
-import java.math.BigInteger;
 import org.snmp4j.asn1.BER;
 import org.snmp4j.asn1.BERInputStream;
+
+import java.io.IOException;
+import java.io.OutputStream;
+import java.math.BigInteger;
 
 /**
  * The <code>Counter64</code> class represents a 64bit unsigned integer type.

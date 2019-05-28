@@ -9,9 +9,10 @@
 package org.snmp4j.smi;
 
 import org.snmp4j.asn1.BER;
+import org.snmp4j.asn1.BERInputStream;
+
 import java.io.IOException;
 import java.io.OutputStream;
-import org.snmp4j.asn1.BERInputStream;
 
 /**
  * The <code>BitString</code> class represents the obsolete SMI type

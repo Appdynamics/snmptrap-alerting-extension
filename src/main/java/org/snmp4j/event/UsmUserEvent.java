@@ -8,11 +8,11 @@
 
 package org.snmp4j.event;
 
-import java.util.EventObject;
 import org.snmp4j.security.UsmUserEntry;
+
+import java.util.EventObject;
+
 // needed for JavaDoc
-import org.snmp4j.security.USM;
-import org.snmp4j.security.UsmUserTable;
 
 /**
  * This Event is issued whenever a user of the {@link org.snmp4j.security.USM} is created
