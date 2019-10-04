@@ -15,23 +15,23 @@ package com.appdynamics.extensions.snmp.model;
  */
 public class ADSnmpData
 {
-    String application;
-    String triggeredBy;
-    String nodes;
-    String txns = "";
-    String machines;
-    String tiers;
-    String eventTime;
-    String severity;
-    String type;
-    String subtype;
-    String summary;
-    String link;
-    String tag;
-    String eventType;
-    String ipAddresses;
-    String incidentId;
-    String accountId;
+    public String application;
+    public String triggeredBy;
+    public String nodes;
+    public String txns = "";
+    public String machines;
+    public String tiers;
+    public String eventTime;
+    public String severity;
+    public String type;
+    public String subtype;
+    public String summary;
+    public String link;
+    public String tag;
+    public String eventType;
+    public String ipAddresses;
+    public String incidentId;
+    public String accountId;
 
 
     public String getApplication() {
