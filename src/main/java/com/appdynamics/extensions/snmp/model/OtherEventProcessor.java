@@ -72,7 +72,7 @@ class OtherEventProcessor extends EventProcessor {
         snmpData.setTag(otherEvent.getTag());
         snmpData.setEventType("NON_POLICY_EVENT");
         snmpData.setIncidentId(otherEvent.getEventNotificationId());
-        snmpData.setAccountId(CommonUtils.cleanUpAccountInfo(otherEvent.getAccountId()));
+        snmpData.setAccountId(otherEvent.getAccountId());
     }
 
     private void populateMachineInfo(ControllerConfig controller,List<String> machines, List<String> ipAddresses, String appID, List<String> affectedNodes) {

@@ -43,7 +43,7 @@ class HRVEventProcessor extends EventProcessor {
         snmpData.setTag(violationEvent.getTag());
         snmpData.setEventType(violationEvent.getEventType());
         snmpData.setIncidentId(violationEvent.getIncidentID());
-        snmpData.setAccountId(CommonUtils.cleanUpAccountInfo(violationEvent.getAccountId()));
+        snmpData.setAccountId(violationEvent.getAccountId());
         snmpData.setTxns(" ");
         snmpData.setNodes(" ");
         snmpData.setTiers(" ");
